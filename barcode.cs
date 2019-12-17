@@ -76,7 +76,7 @@ namespace barcodeReader
             if (mqttstate == 0)
             {
                 string topic = "NAVIGO";
-                string mqttmessage = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "  " + MaterialName + 
+                string mqttmessage = Account+","+DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "  " + MaterialName + 
                     " Track In 結果：" + result;
                 var appMsg = new MqttApplicationMessage(topic, Encoding.UTF8.GetBytes(mqttmessage), MqttQualityOfServiceLevel.AtMostOnce, false);
                 mqttClient.PublishAsync(appMsg);
